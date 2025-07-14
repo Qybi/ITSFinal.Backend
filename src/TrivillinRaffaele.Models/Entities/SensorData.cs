@@ -10,6 +10,6 @@ public class SensorData : Entity
     public decimal Longitude { get; set; }
     public decimal Depth { get; set; }
     public DateTime Timestamp { get; set; }
-    public string Notes { get; set; }
+    public string? Notes { get; set; }
     public virtual Sensor Sensor { get; set; }
 }
