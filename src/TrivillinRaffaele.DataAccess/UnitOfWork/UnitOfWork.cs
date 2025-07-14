@@ -15,10 +15,10 @@ namespace TrivillinRaffaele.DataAccess.UnitOfWork
             _serviceProvider = serviceProvider;
         }
 
-        private ISensorRepository? _categoryRepository;
-        private ISensorDataRepository? _productRepository;
-        public ISensorRepository Categories => _categoryRepository ??= _serviceProvider.GetRequiredService<ISensorRepository>();
-        public ISensorDataRepository Products => _productRepository ??= _serviceProvider.GetRequiredService<ISensorDataRepository>();
+        private ISensorRepository? _sensorRepository;
+        private ISensorDataRepository? _sensorDataRepository;
+        public ISensorRepository Sensors => _sensorRepository ??= _serviceProvider.GetRequiredService<ISensorRepository>();
+        public ISensorDataRepository SensorsData => _sensorDataRepository ??= _serviceProvider.GetRequiredService<ISensorDataRepository>();
         
         public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
