@@ -24,7 +24,7 @@ jobs:
           dotnet-version: '9.x'
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: dotnet build --configuration Release TrivillinRaffaele.API.csproj TrivillinRaffaele.DataAccess.csproj TrivillinRaffaele.DataAccess.Abstractions.csproj TrivillinRaffaele.Models.csproj TrivillinRaffaele.ServiceDefaults.csproj
 
       - name: dotnet publish
         run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/myapp"
