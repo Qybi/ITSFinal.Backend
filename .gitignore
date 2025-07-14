@@ -363,3 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 ./src/TrivillinRaffaele.GetSensorData/*
+.\src\TrivillinRaffaele.GetSensorData\*
