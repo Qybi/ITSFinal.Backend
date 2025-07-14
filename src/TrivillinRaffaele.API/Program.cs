@@ -2,6 +2,7 @@ using TrivillinRaffaele.DataAccess.Abstractions.Contexts;
 using TrivillinRaffaele.DataAccess.Contexts;
 using Microsoft.AspNetCore.Http.Json;
 using Microsoft.EntityFrameworkCore;
+using TrivillinRaffaele.API.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,6 +43,7 @@ if (app.Environment.IsDevelopment())
 if (app.Environment.IsProduction())
     app.UseHttpsRedirection();
 
-
+app.MapSensorDataEndPoints();
+app.MapSensorsEndPoints();
 
 app.Run();
