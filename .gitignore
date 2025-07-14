@@ -362,5 +362,6 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-./src/TrivillinRaffaele.GetSensorData/*
-.\src\TrivillinRaffaele.GetSensorData\*
+src/TrivillinRaffaele.GetSensorData/
+
+src/TrivillinRaffaele.Dequeuer/
