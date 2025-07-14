@@ -12,4 +12,11 @@ public class SensorDataRepository : Repository<SensorData>, ISensorDataRepositor
     {
         _context = context;
     }
+
+    public async Task<IEnumerable<SensorData>> GetAllBySensorId(int sensorId)
+    {
+        return await _context.SensorsData
+            .Where(sd => sd.SensorId == sensorId)
+            .ToListAsync();
+    }
 }

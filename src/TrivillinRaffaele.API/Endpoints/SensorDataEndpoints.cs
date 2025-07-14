@@ -11,11 +11,11 @@ public static class SensorDataEndpoints
     {
         var group = builder.MapGroup("/api/sensors-data").WithTags("SensorData");
 
-        group.MapGet("/", GetSensorDataAsync)
-            .WithName("GetSensorData")
-            .WithDescription("Get all sensor data");
+        group.MapGet("/edit/{id:int}", GetSensorDataByIdAsync)
+            .WithName("GetSensorDataByIdAsync")
+            .WithDescription("Get a SensorData by its ID");
 
-        group.MapGet("/{id:int}", GetSensorDataByIdAsync)
+        group.MapGet("/", GetSensorDataBySensorIdAsync)
             .WithName("GetSensorDataById")
             .WithDescription("Get a SensorData by its ID");
 
@@ -34,12 +34,14 @@ public static class SensorDataEndpoints
         return group;
     }
 
-    private static async Task<Results<Ok<IEnumerable<SensorData>>, BadRequest>> GetSensorDataAsync(IUnitOfWork _uow)
+    private static async Task<Results<Ok<SensorData?>, NotFound, BadRequest>> GetSensorDataByIdAsync(IUnitOfWork _uow, [FromRoute] int id)
     {
         try
         {
-            IEnumerable<SensorData> cats = await _uow.SensorsData.GetAllAsync();
-            return TypedResults.Ok(cats);
+            var sd = await _uow.SensorsData.GetByIdAsync(id);
+            if (sd == null)
+                return TypedResults.NotFound();
+            return TypedResults.Ok(sd);
         }
         catch (Exception)
         {
@@ -47,14 +49,14 @@ public static class SensorDataEndpoints
         }
     }
 
-    private static async Task<Results<Ok<SensorData?>, NotFound, BadRequest>> GetSensorDataByIdAsync(IUnitOfWork _uow, [FromRoute] int id)
+    private static async Task<Results<Ok<IEnumerable<SensorData>>, NotFound, BadRequest>> GetSensorDataBySensorIdAsync(IUnitOfWork _uow, [FromQuery] int sensorId)
     {
         try
         {
-            var c = await _uow.SensorsData.GetByIdAsync(id);
-            if (c == null)
+            var data = await _uow.SensorsData.GetAllBySensorId(sensorId);
+            if (data == null)
                 return TypedResults.NotFound();
-            return TypedResults.Ok(c);
+            return TypedResults.Ok(data);
         }
         catch (Exception)
         {

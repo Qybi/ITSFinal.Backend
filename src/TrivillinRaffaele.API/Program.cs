@@ -31,6 +31,8 @@ builder.Services.Configure<JsonOptions>(options =>
 
 var app = builder.Build();
 
+app.UseCors();
+
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
