@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
-using Cled.TrivillinRaffaeleEsame.DataAccess.Abstractions.Contexts;
-using Cled.TrivillinRaffaeleEsame.DataAccess.Abstractions.UnitOfWork;
-using Cled.TrivillinRaffaeleEsame.Models;
+using TrivillinRaffaele.DataAccess.Abstractions.Contexts;
+using TrivillinRaffaele.DataAccess.Abstractions.UnitOfWork;
+using TrivillinRaffaele.Models;
 
-namespace Cled.TrivillinRaffaeleEsame.DataAccess.UnitOfWork;
+namespace TrivillinRaffaele.DataAccess.UnitOfWork;
 
 
 public class Repository<T> : IRepository<T> where T : Entity

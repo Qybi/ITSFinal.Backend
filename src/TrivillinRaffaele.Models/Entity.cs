@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Cled.TrivillinRaffaeleEsame.Models;
+namespace TrivillinRaffaele.Models;
 
 public class Entity
 {

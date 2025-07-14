@@ -1,8 +1,8 @@
 using Microsoft.Extensions.DependencyInjection;
-using Cled.TrivillinRaffaeleEsame.DataAccess.UnitOfWork;
-using Cled.TrivillinRaffaeleEsame.DataAccess.UnitOfWork.Repositories;
-using Cled.TrivillinRaffaeleEsame.DataAccess.Abstractions.UnitOfWork;
-using Cled.TrivillinRaffaeleEsame.DataAccess.Abstractions.UnitOfWork.Repositories;
+using TrivillinRaffaele.DataAccess.UnitOfWork;
+using TrivillinRaffaele.DataAccess.UnitOfWork.Repositories;
+using TrivillinRaffaele.DataAccess.Abstractions.UnitOfWork;
+using TrivillinRaffaele.DataAccess.Abstractions.UnitOfWork.Repositories;
 
 namespace Microsoft.Extensions.Hosting;
 
@@ -12,8 +12,8 @@ public static class Extensions
     {
         services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-        services.AddScoped<ICategoryRepository, CategoryRepository>();
-        services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<ISensorRepository, SensorRepository>();
+        services.AddScoped<ISensorDataRepository, SensorDataRepository>();
 
         return services;
     }

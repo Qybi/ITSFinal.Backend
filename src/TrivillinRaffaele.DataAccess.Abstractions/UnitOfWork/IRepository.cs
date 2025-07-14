@@ -1,7 +1,7 @@
 ﻿using System.Linq.Expressions;
-using Cled.TrivillinRaffaeleEsame.Models;
+using TrivillinRaffaele.Models;
 
-namespace Cled.TrivillinRaffaeleEsame.DataAccess.Abstractions.UnitOfWork;
+namespace TrivillinRaffaele.DataAccess.Abstractions.UnitOfWork;
 
 public interface IRepository<T> where T : Entity
 {

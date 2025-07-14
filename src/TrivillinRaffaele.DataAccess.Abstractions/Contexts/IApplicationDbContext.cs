@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace Cled.TrivillinRaffaeleEsame.DataAccess.Abstractions.Contexts;
+namespace TrivillinRaffaele.DataAccess.Abstractions.Contexts;
 public interface IApplicationDbContext
 {
     EntityEntry Entry(object entity);

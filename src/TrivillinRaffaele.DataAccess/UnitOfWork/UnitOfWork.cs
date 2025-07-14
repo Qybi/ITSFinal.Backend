@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Cled.TrivillinRaffaeleEsame.DataAccess.Abstractions.Contexts;
-using Cled.TrivillinRaffaeleEsame.DataAccess.Abstractions.UnitOfWork;
-using Cled.TrivillinRaffaeleEsame.DataAccess.Abstractions.UnitOfWork.Repositories;
+using TrivillinRaffaele.DataAccess.Abstractions.Contexts;
+using TrivillinRaffaele.DataAccess.Abstractions.UnitOfWork;
+using TrivillinRaffaele.DataAccess.Abstractions.UnitOfWork.Repositories;
 
-namespace Cled.TrivillinRaffaeleEsame.DataAccess.UnitOfWork
+namespace TrivillinRaffaele.DataAccess.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
@@ -15,10 +15,10 @@ namespace Cled.TrivillinRaffaeleEsame.DataAccess.UnitOfWork
             _serviceProvider = serviceProvider;
         }
 
-        private ICategoryRepository? _categoryRepository;
-        private IProductRepository? _productRepository;
-        public ICategoryRepository Categories => _categoryRepository ??= _serviceProvider.GetRequiredService<ICategoryRepository>();
-        public IProductRepository Products => _productRepository ??= _serviceProvider.GetRequiredService<IProductRepository>();
+        private ISensorRepository? _categoryRepository;
+        private ISensorDataRepository? _productRepository;
+        public ISensorRepository Categories => _categoryRepository ??= _serviceProvider.GetRequiredService<ISensorRepository>();
+        public ISensorDataRepository Products => _productRepository ??= _serviceProvider.GetRequiredService<ISensorDataRepository>();
         
         public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

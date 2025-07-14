@@ -1,11 +1,11 @@
 ﻿
-using Cled.TrivillinRaffaeleEsame.DataAccess.Abstractions.UnitOfWork.Repositories;
+using TrivillinRaffaele.DataAccess.Abstractions.UnitOfWork.Repositories;
 
-namespace Cled.TrivillinRaffaeleEsame.DataAccess.Abstractions.UnitOfWork;
+namespace TrivillinRaffaele.DataAccess.Abstractions.UnitOfWork;
 
 public interface IUnitOfWork
 {
-    ICategoryRepository Categories { get; }
-    IProductRepository Products { get; }
+    ISensorRepository Categories { get; }
+    ISensorDataRepository Products { get; }
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }
